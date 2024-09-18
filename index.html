@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bunny Store</title>
+    <!-- Include the Khalid font -->
+    <style>
+        /* CSS Styles */
+
+        /* Include the Khalid font */
+        @font-face {
+            font-family: 'Khalid';
+            src: url('fonts/Khalid.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #fff0f5;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            color: #4b0082;
+            margin: 0;
+        }
+
+        /* Apply 'Khalid' font to Arabic text and center it */
+        body:lang(ar), *:lang(ar) {
+            font-family: 'Khalid', sans-serif;
+            text-align: center;
+        }
+
+        /* Adjust text direction for right-to-left text */
+        [dir="rtl"] {
+            direction: rtl;
+        }
+
+        /* Rest of your CSS styles */
+        header {
+            background-color: #ffb6c1;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #4b0082;
+            text-decoration: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+        .cake-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cake-item {
+            margin: 20px;
+            width: 250px;
+        }
+        .cake-item img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        .cake-item h3 {
+            margin-top: 10px;
+            color: #ff69b4;
+        }
+        .cake-item p {
+            font-size: 18px;
+            color: #4b0082;
+        }
+        footer {
+            background-color: #ffb6c1;
+            padding: 15px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bunny Store</h1>
+        <nav id="navigation-bar">
+            <a href="#" onclick="navigate('home')">Home</a>
+            <a href="#" onclick="navigate('menu')">Menu</a>
+            <a href="#" onclick="navigate('about')">About Us</a>
+            <a href="#" onclick="navigate('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Content will be loaded here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bunny Store</p>
+    </footer>
+
+    <script>
+        /* JavaScript Code */
+
+        // Initialize application
+        function init() {
+            navigate('home');
+        }
+
+        // Navigation functions
+        function navigate(page) {
+            const mainContent = document.getElementById('main-content');
+            switch (page) {
+                case 'home':
+                    mainContent.innerHTML = `
+                        <h2 lang="ar" dir="rtl">مرحبًا بكم في Bunny Store!</h2>
+                        <p lang="ar" dir="rtl">متوفر كل الاكلات الموجوده بالعالم وطيبه هم وتشبع ورخيصه وحار مكسب ورخيص</p>
+                        <img src="cake-gallery/photo_2024-09-18_07-46-05.jpg" alt="Cake Shop" style="max-width: 100%; height: auto;">
+                    `;
+                    break;
+                case 'menu':
+                    showMenu();
+                    break;
+                case 'about':
+                    mainContent.innerHTML = `
+                        <h2 lang="ar" dir="rtl">معلومات عنا</h2>
+                        <p lang="ar" dir="rtl">متجر الأرانب لسيرفر Minecraft for Girls</p>
+                        <p lang="ar" dir="rtl">مقدمة المتجر: تال</p>
+                        <img src="cake-gallery/photo_2024-09-18_07-45-55.jpg" alt="About Us" style="max-width: 100%; height: auto;">
+                    `;
+                    break;
+                case 'contact':
+                    mainContent.innerHTML = `
+                        <h2 lang="ar" dir="rtl">اتصل بنا</h2>
+                        <p lang="ar" dir="rtl">تواصل وياي على التلي من @dollstal </p>
+                        <p lang="ar" dir="rtl">على التيك من @توتي 🐰</p>
+                        <img src="cake-gallery/photo_2024-09-18_07-45-55.jpg" alt="Contact Us" style="max-width: 100%; height: auto;">
+                    `;
+                    break;
+                default:
+                    mainContent.innerHTML = `<p lang="ar" dir="rtl">الصفحة غير موجودة.</p>`;
+            }
+        }
+
+        function showMenu() {
+            const mainContent = document.getElementById('main-content');
+            mainContent.innerHTML = `
+                <h2 lang="ar" dir="rtl">اكلاتنا اللذيذة</h2>
+                <div class="cake-gallery" id="cake-gallery">
+                    <!-- Cakes will be loaded here -->
+                </div>
+            `;
+            loadCakes();
+        }
+
+        function loadCakes() {
+    const gallery = document.getElementById('cake-gallery');
+    gallery.innerHTML = '';
+    const cakes = [
+        {
+            id: '1',
+            name: 'بزون',
+            price: 15.00,
+            image: 'cake-gallery/photo_2024-09-18_07-44-44.jpg'
+        },
+        {
+            id: '2',
+            name: 'بزون 2 ',
+            price: 18.00,
+            image: 'cake-gallery/photo_2024-09-18_07-46-05.jpg'
+        },
+        {
+            id: '3',
+            name: 'بزون 3 ',
+            price: 20.00,
+            image: 'cake-gallery/photo_2024-09-18_07-45-55.jpg'
+        }
+    ];
+    cakes.forEach(cake => {
+        const cakeItem = document.createElement('div');
+        cakeItem.className = 'cake-item';
+        cakeItem.innerHTML = `
+            <span class="d-none d-lg-block">
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="${cake.image}" alt="${cake.name}" onerror="this.src='cake-gallery/default-image.jpg'">
+            </span>
+            <h3>${cake.name}</h3>
+            <p lang="ar" dir="rtl">$${cake.price.toFixed(2)}</p>
+        `;
+        gallery.appendChild(cakeItem);
+    });
+}
+
+
+        // Initialize the application
+        window.onload = init;
+    </script>
+
+</body>
+</html>
