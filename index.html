@@ -7,87 +7,104 @@
     <style>
         /* CSS Styles */
 
-        /* Include the Khalid font */
-        @font-face {
-            font-family: 'Khalid';
-            src: url('fonts/Khalid.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+/* Include the Khalid font */
+@font-face {
+    font-family: 'Khalid';
+    src: url('fonts/Khalid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-        body {
-            background-color: #fff0f5;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            color: #4b0082;
-            margin: 0;
-        }
+body {
+    background-color: #fff0f5;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #4b0082;
+    margin: 0;
+}
 
-        /* Apply 'Khalid' font to Arabic text and center it */
-        body:lang(ar), *:lang(ar) {
-            font-family: 'Khalid', sans-serif;
-            text-align: center;
-        }
+/* Apply 'Khalid' font to Arabic text and center it */
+body:lang(ar), *:lang(ar) {
+    font-family: 'Khalid', sans-serif;
+    text-align: center;
+}
 
-        /* Adjust text direction for right-to-left text */
-        [dir="rtl"] {
-            direction: rtl;
-        }
+/* Adjust text direction for right-to-left text */
+[dir="rtl"] {
+    direction: rtl;
+}
 
-        /* Rest of your CSS styles */
-        header {
-            background-color: #ffb6c1;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-        nav {
-            margin-top: 15px;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #4b0082;
-            text-decoration: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 50px;
-            text-align: center;
-        }
-        .cake-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .cake-item {
-            margin: 20px;
-            width: 250px;
-        }
-        .cake-item img {
-            width: 100%;
-            border-radius: 15px;
-        }
-        .cake-item h3 {
-            margin-top: 10px;
-            color: #ff69b4;
-        }
-        .cake-item p {
-            font-size: 18px;
-            color: #4b0082;
-        }
-        footer {
-            background-color: #ffb6c1;
-            padding: 15px;
-            text-align: center;
-            margin-top: 50px;
-        }
+header {
+    background-color: #ffb6c1;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #4b0082;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 50px;
+    text-align: center;
+}
+
+.cake-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cake-item {
+    margin: 20px;
+    width: 250px;
+}
+
+.cake-item img {
+    width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease; /* إضافة التحول السلس */
+}
+
+/* تأثير على الصور لما واحد يمرر الفأرة فوقها */
+.cake-item img:hover {
+    transform: scale(1.05); /* تكبير الصورة بشكل خفيف */
+    transition: transform 0.3s ease; /* الانتقال يكون سلس */
+}
+
+.cake-item h3 {
+    margin-top: 10px;
+    color: #ff69b4;
+}
+
+.cake-item p {
+    font-size: 18px;
+    color: #4b0082;
+}
+
+footer {
+    background-color: #ffb6c1;
+    padding: 15px;
+    text-align: center;
+    margin-top: 50px;
+}
     </style>
 </head>
 <body>
